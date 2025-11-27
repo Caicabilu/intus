@@ -1,0 +1,64 @@
+services:
+  # Base de datos PostgreSQL
+  postgres:
+    image: postgres:15
+    container_name: intus_postgres
+    environment:
+      POSTGRES_DB: intus_db
+      POSTGRES_USER: intus_user
+      POSTGRES_PASSWORD: intus_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - intus_network
+
+  # Strapi CMS (Backend/Admin)
+  strapi:
+    image: strapi/strapi:latest
+    container_name: intus_strapi
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_NAME: intus_db
+      DATABASE_USERNAME: intus_user
+      DATABASE_PASSWORD: intus_password
+      JWT_SECRET: your-jwt-secret-key-change-this
+      ADMIN_JWT_SECRET: your-admin-jwt-secret-change-this
+      APP_KEYS: key1,key2,key3,key4
+      API_TOKEN_SALT: your-api-token-salt-change-this
+      TRANSFER_TOKEN_SALT: your-transfer-token-salt-change-this
+    volumes:
+      - ./strapi-app:/opt/app
+    ports:
+      - "1337:1337"
+    depends_on:
+      - postgres
+    networks:
+      - intus_network
+
+  # Frontend Next.js
+  frontend:
+    image: node:18-alpine
+    container_name: intus_frontend
+    working_dir: /app
+    environment:
+      NEXT_PUBLIC_STRAPI_API_URL: http://localhost:1337
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3002:3000"
+    command: sh -c "npm install && npm run dev"
+    depends_on:
+      - strapi
+    networks:
+      - intus_network
+
+volumes:
+  postgres_data:
+
+networks:
+  intus_network:
+    driver: bridge
