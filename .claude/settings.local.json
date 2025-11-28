@@ -6,7 +6,16 @@
       "Bash(git add:*)",
       "Bash(git reset:*)",
       "Bash(docker-compose:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(docker exec:*)",
+      "Bash(winpty docker exec -it intus_strapi sh -c \"ls -la /opt/app\")",
+      "Bash(docker run:*)",
+      "Bash(rm:*)",
+      "Bash(npx create-strapi-app:*)",
+      "Bash(docker volume rm:*)"
     ],
     "deny": [],
     "ask": []

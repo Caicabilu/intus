@@ -14,30 +14,23 @@ services:
     networks:
       - intus_network
 
-  # Strapi CMS (Backend/Admin) 
+  # Strapi CMS - SQLite simple
   strapi:
-    image: strapi/strapi:latest
+    image: node:18-alpine
     container_name: intus_strapi
-    environment:
-      NODE_ENV: development
-      DATABASE_CLIENT: postgres
-      DATABASE_HOST: postgres
-      DATABASE_PORT: 5432
-      DATABASE_NAME: intus_db
-      DATABASE_USERNAME: intus_user
-      DATABASE_PASSWORD: intus_password
-      DATABASE_SSL: false
-      JWT_SECRET: your-jwt-secret-key-change-this
-      ADMIN_JWT_SECRET: your-admin-jwt-secret-change-this
-      APP_KEYS: key1,key2,key3,key4
-      API_TOKEN_SALT: your-api-token-salt-change-this
-      TRANSFER_TOKEN_SALT: your-transfer-token-salt-change-this
+    working_dir: /opt/app
     volumes:
-      - strapi_data:/opt/app
+      - ./strapi-app:/opt/app
     ports:
       - "1337:1337"
-    depends_on:
-      - postgres
+    environment:
+      NODE_ENV: development
+    command: sh -c "
+      if [ ! -f package.json ]; then 
+        echo 'Instalando Strapi...';
+        yarn create strapi-app . --quickstart --no-run --typescript;
+      fi && 
+      yarn develop"
     networks:
       - intus_network
 
@@ -60,7 +53,6 @@ services:
 
 volumes:
   postgres_data:
-  strapi_data:
 
 networks:
   intus_network:

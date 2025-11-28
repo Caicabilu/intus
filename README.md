@@ -20,29 +20,40 @@ Sistema de gestión de contenido para blog promocional de tejidos artesanales co
 
 ## Instalación y Uso
 
-### 1. Levantar el entorno completo
+### ⚠️ **IMPORTANTE: Instalación Manual Recomendada**
+
+Debido a conflictos de versiones en Docker, se recomienda instalar Strapi manualmente.
+
+**Ver guía completa:** [INSTALACION_STRAPI.md](./INSTALACION_STRAPI.md)
+
+### 1. Inicio rápido
 
 ```bash
-# Construir e iniciar todos los servicios
-docker-compose up --build
+# Iniciar solo PostgreSQL
+docker-compose up -d postgres
 
-# O en modo detached
-docker-compose up -d --build
+# Instalar Strapi manualmente (ver guía detallada)
+cd strapi-app
+npx create-strapi-app@4.25.4 . --quickstart --no-run --typescript
+npm install pg
+npm run develop
 ```
 
 ### 2. Acceder a los servicios
 
-- **Frontend**: http://localhost:3000
+- **Frontend**: http://localhost:3002  
 - **Strapi Admin**: http://localhost:1337/admin
-- **Base de Datos**: localhost:5432
+- **Base de Datos**: localhost:5433
+- **APIs**: http://localhost:1337/api/categories | /products
 
 ### 3. Configuración inicial de Strapi
 
 1. Ir a http://localhost:1337/admin
 2. Crear cuenta de administrador
-3. Configurar tipos de contenido:
-   - **Posts** (título, slug, contenido, imagen destacada, galería, categoría)
-   - **Categories** (nombre, slug, descripción)
+3. Configurar Content Types (ver guía detallada):
+   - **Categories** (name, slug, description, image)
+   - **Products** (name, slug, description, price, images, category, stock, materials, techniques, featured)
+4. Configurar permisos API en Settings > Users & Permissions > Public
    - **Gallery** (título, descripción, imágenes)
 
 ### 4. Estructura de Content Types recomendada
