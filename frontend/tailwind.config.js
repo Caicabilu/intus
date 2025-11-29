@@ -8,6 +8,28 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Colores principales de la marca Intus (basados en el logo)
+        'intus': {
+          'gold': '#D4AF37',      // Dorado del logo
+          'yellow': '#F4C430',    // Amarillo brillante
+          'dark': '#1a1a1a',      // Negro del logo
+          'light': '#fefefe',     // Blanco
+          'cream': '#FAF8F5',     // Crema suave
+        },
+        // Colores secundarios (tonos naturales de lana)
+        'wool': {
+          50: '#faf8f6',
+          100: '#f5f1ed',
+          200: '#ebe3d9',
+          300: '#ddd0c0',
+          400: '#c9b8a3',
+          500: '#b39d86',
+          600: '#9a8169',
+          700: '#7d6854',
+          800: '#625143',
+          900: '#4a3e35',
+        },
+        // Mantener amber para retrocompatibilidad
         'organic-brown': {
           50: '#faf8f6',
           100: '#f4f2f0',

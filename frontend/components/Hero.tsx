@@ -2,43 +2,114 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-organic-brown-200 via-natural-beige-100 to-organic-brown-100" />
-      
-      {/* Decorative elements */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-organic-brown-300 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-natural-beige-300 rounded-full blur-3xl" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/uploads/lanas teñidas.jpg"
+          alt="Lanas naturales teñidas artesanalmente"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
+        />
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-intus-dark/90 via-intus-dark/70 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 px-4 max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+        {/* Left Column - Text */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          className="text-left"
         >
-          <h1 className="text-5xl md:text-7xl font-bold text-organic-brown-800 mb-6">
-            Tejidos que Cuentan
-            <span className="block text-gradient">Historias</span>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-block mb-4"
+          >
+            <span className="text-intus-gold font-semibold tracking-wider uppercase text-sm">
+              Artesanía Contemporánea
+            </span>
+          </motion.div>
+
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <span className="text-white">Tejidos que</span>
+            <span className="block text-intus-gold mt-2">Cuentan Historias</span>
           </h1>
-          
-          <p className="text-xl md:text-2xl text-organic-brown-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-            Descubre el arte ancestral de tejer lana orgánica con técnicas únicas 
-            que transforman fibras naturales en obras de arte funcionales
+
+          <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-xl leading-relaxed">
+            Cada pieza es única, tejida a mano con <span className="text-intus-yellow font-semibold">lana orgánica</span> y
+            tintes naturales. Arte funcional que perdura generaciones.
           </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/blog" className="btn-primary text-lg px-8 py-4">
-              Explorar Blog
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/productos"
+              className="inline-flex items-center justify-center bg-intus-gold hover:bg-intus-yellow text-intus-dark font-semibold text-lg px-8 py-4 rounded-lg transition-all hover:scale-105 shadow-lg"
+            >
+              Ver Productos
+              <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
             </Link>
-            <Link href="/gallery" className="btn-secondary text-lg px-8 py-4">
-              Ver Galería
+            <Link
+              href="#productos-destacados"
+              className="inline-flex items-center justify-center border-2 border-intus-gold text-white hover:bg-intus-gold hover:text-intus-dark font-semibold text-lg px-8 py-4 rounded-lg transition-all"
+            >
+              Conocer Más
             </Link>
+          </div>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-intus-gold/30"
+          >
+            <div>
+              <div className="text-3xl font-bold text-intus-gold">100%</div>
+              <div className="text-sm text-gray-300">Lana Orgánica</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-intus-gold">+15</div>
+              <div className="text-sm text-gray-300">Años Experiencia</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-intus-gold">∞</div>
+              <div className="text-sm text-gray-300">Piezas Únicas</div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Column - Featured Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 30 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="hidden lg:block"
+        >
+          <div className="relative">
+            <div className="absolute -inset-4 bg-intus-gold/20 rounded-lg blur-xl" />
+            <div className="relative rounded-lg overflow-hidden shadow-2xl">
+              <Image
+                src="/uploads/intus logo tejido.jpg"
+                alt="Logo Intus tejido artesanal"
+                width={600}
+                height={600}
+                className="rounded-lg"
+                sizes="(max-width: 1024px) 0vw, 50vw"
+              />
+            </div>
           </div>
         </motion.div>
       </div>
@@ -49,8 +120,8 @@ export default function Hero() {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-organic-brown-400 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-organic-brown-400 rounded-full mt-2" />
+        <div className="w-6 h-10 border-2 border-intus-gold rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-intus-gold rounded-full mt-2" />
         </div>
       </motion.div>
     </section>
