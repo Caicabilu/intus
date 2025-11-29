@@ -9,6 +9,7 @@ export default function Navbar() {
 
   const navigation = [
     { name: 'Inicio', href: '/' },
+    { name: 'Productos', href: '/productos' },
     { name: 'Blog', href: '/blog' },
     { name: 'Galería', href: '/gallery' },
     { name: 'Técnicas', href: '/techniques' },

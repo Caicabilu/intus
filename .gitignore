@@ -42,3 +42,10 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+
+# Strapi
+strapi-app/
+frontend/public/uploads/
+
+# Package lock (generado automáticamente)
+package-lock.json
