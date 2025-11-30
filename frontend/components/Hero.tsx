@@ -47,7 +47,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-xl leading-relaxed">
-            Cada pieza es única, tejida a mano con <span className="text-intus-yellow font-semibold">lana orgánica</span> y
+            Cada pieza es única, tejida a mano con <span className="text-intus-yellow font-semibold">lana natural</span> y
             tintes naturales. Arte funcional que perdura generaciones.
           </p>
 
@@ -78,7 +78,7 @@ export default function Hero() {
           >
             <div>
               <div className="text-3xl font-bold text-intus-gold">100%</div>
-              <div className="text-sm text-gray-300">Lana Orgánica</div>
+              <div className="text-sm text-gray-300">Lana Natural</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-intus-gold">+15</div>

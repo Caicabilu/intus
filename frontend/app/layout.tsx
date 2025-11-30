@@ -7,9 +7,9 @@ import Footer from '@/components/Footer'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Intus - Tejidos Naturales de Lana Orgánica',
-  description: 'Descubre la belleza de la lana orgánica transformada con técnicas artesanales únicas',
-  keywords: ['tejidos', 'lana orgánica', 'artesanal', 'natural', 'sostenible'],
+  title: 'Intus - Tejidos Naturales de Lana de Alta Calidad',
+  description: 'Descubre la belleza de la lana natural transformada con técnicas artesanales únicas',
+  keywords: ['tejidos', 'lana natural', 'artesanal', 'sostenible', 'fibras naturales'],
   authors: [{ name: 'Intus' }],
   viewport: 'width=device-width, initial-scale=1',
 }

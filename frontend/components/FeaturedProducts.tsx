@@ -27,7 +27,7 @@ export default function FeaturedProducts({ products }: FeaturedProductsProps) {
             Productos Destacados
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Descubre nuestros tejidos artesanales elaborados con lana orgánica y técnicas tradicionales
+            Descubre nuestros tejidos artesanales elaborados con lana natural y técnicas tradicionales
           </p>
         </motion.div>
 

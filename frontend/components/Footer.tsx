@@ -34,7 +34,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-gray-300 mb-6 max-w-md leading-relaxed">
-              Preservando el <span className="text-intus-gold font-semibold">arte ancestral</span> del tejido con lana orgánica.
+              Preservando el <span className="text-intus-gold font-semibold">arte ancestral</span> del tejido con lana natural.
               Cada hilo cuenta una historia, cada pieza es única.
             </p>
 
@@ -129,7 +129,7 @@ export default function Footer() {
               © {new Date().getFullYear()} <span className="text-intus-gold font-semibold">Intus</span> - Tejidos Naturales. Todos los derechos reservados.
             </p>
             <p className="text-gray-500 text-sm text-center md:text-right mt-2 md:mt-0">
-              Hecho a mano con ❤️ y lana orgánica
+              Hecho a mano con ❤️ y lana natural
             </p>
           </div>
         </div>
